@@ -1,28 +1,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.stori.ex139">
+    package="com.example.stories2.ex139">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    
     <application
+        android:largeHeap="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".FirstActivity"
-            >
+        <activity android:name=".TestMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity"
+        
+        <service android:name=".AlwaysTopWithNoneTouch"
+            android:exported="false"
+            android:enabled="true"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.DIAL"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="tel"/>
+            <intent-filter
+                >
+                <action android:name="AlwaysTopWithNoneTouch"/>
             </intent-filter>
-        </activity>
+        </service>
+
+        <service android:name=".AlwaysTopWithTouch"
+            android:exported="false"
+            android:enabled="true"
+            >
+            <intent-filter
+                >
+                <action android:name="AlwaysTopWithTouch"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
